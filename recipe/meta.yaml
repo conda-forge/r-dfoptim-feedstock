@@ -1,5 +1,4 @@
-{% set version = '2017.12-1' %}
-
+{% set version = '2018.2-1' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,27 +9,29 @@ package:
 source:
   fn: dfoptim_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/dfoptim_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/dfoptim/dfoptim_{{ version }}.tar.gz
-  sha256: eec97402bab34b5d67bf4182117931b8189784ce650555896f0c26a1a748500f
+    - {{ cran_mirror }}/src/contrib/dfoptim_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/dfoptim/dfoptim_{{ version }}.tar.gz
+  sha256: 63fd151797219baab932ccf9da42e6ade79baa6906e8c6f424c04b85ba06cabf
 
 build:
+  merge_build_host: True  # [win]
   number: 0
+  skip: true  # [win32]
   rpaths:
     - lib/R/lib/
     - lib/
-  skip: true  # [win32]
 
 requirements:
   build:
+    - {{posix}}zip               # [win]
+  host:
     - r-base
-
   run:
     - r-base
 
 test:
   commands:
-    - $R -e "library('dfoptim')"  # [not win]
+    - $R -e "library('dfoptim')"           # [not win]
     - "\"%R%\" -e \"library('dfoptim')\""  # [win]
 
 about:
@@ -45,8 +46,9 @@ about:
 
 extra:
   recipe-maintainers:
-    - cbrueffer
     - johanneskoester
     - bgruening
     - daler
     - jdblischak
+    - cbrueffer
+    - dbast
