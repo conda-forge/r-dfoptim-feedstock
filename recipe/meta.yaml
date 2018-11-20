@@ -14,9 +14,9 @@ source:
   sha256: 63fd151797219baab932ccf9da42e6ade79baa6906e8c6f424c04b85ba06cabf
 
 build:
+  noarch: generic
   merge_build_host: True  # [win]
-  number: 0
-  skip: true  # [win32]
+  number: 1000
   rpaths:
     - lib/R/lib/
     - lib/
@@ -41,8 +41,7 @@ about:
     information. More importantly, they can be used to solve non-smooth optimization
     problems.
   license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'  # [unix]
-  license_file: '{{ environ["PREFIX"] }}\R\share\licenses\GPL-3'  # [win]
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
 
 extra:
   recipe-maintainers:
