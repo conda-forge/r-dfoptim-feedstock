@@ -1,4 +1,4 @@
-{% set version = '2018.2-1' %}
+{% set version = "2020.10-1" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -11,12 +11,12 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/dfoptim_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/dfoptim/dfoptim_{{ version }}.tar.gz
-  sha256: 63fd151797219baab932ccf9da42e6ade79baa6906e8c6f424c04b85ba06cabf
+  sha256: fea57cf90a123cd530cc7f43664b1ec422a49b3442f4b858f33ac5cdb7e5c33f
 
 build:
   noarch: generic
-  merge_build_host: True  # [win]
-  number: 1002
+  merge_build_host: true  # [win]
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -37,11 +37,9 @@ test:
 about:
   home: http://www.jhsph.edu/agingandhealth/People/Faculty_personal_pages/Varadhan.html
   license: GPL (>= 2)
-  summary: Derivative-Free optimization algorithms. These algorithms do not require gradient
-    information. More importantly, they can be used to solve non-smooth optimization
-    problems.
+  summary: Derivative-Free optimization algorithms. These algorithms do not require gradient information. More importantly, they can be used to solve non-smooth optimization problems.
   license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
+  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
   recipe-maintainers:
