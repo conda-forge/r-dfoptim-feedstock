@@ -7,7 +7,6 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: dfoptim_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/dfoptim_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/dfoptim/dfoptim_{{ version }}.tar.gz
@@ -36,7 +35,7 @@ test:
 
 about:
   home: http://www.jhsph.edu/agingandhealth/People/Faculty_personal_pages/Varadhan.html
-  license: GPL (>= 2)
+  license: GPL-2.0-or-later
   summary: Derivative-Free optimization algorithms. These algorithms do not require gradient information. More importantly, they can be used to solve non-smooth optimization problems.
   license_family: GPL3
   license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
@@ -44,9 +43,3 @@ about:
 extra:
   recipe-maintainers:
     - conda-forge/r
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
-    - cbrueffer
-    - dbast
