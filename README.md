@@ -1,11 +1,11 @@
-About r-dfoptim
-===============
+About r-dfoptim-feedstock
+=========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-dfoptim-feedstock/blob/main/LICENSE.txt)
 
 Home: http://www.jhsph.edu/agingandhealth/People/Faculty_personal_pages/Varadhan.html
 
 Package license: GPL-2.0-or-later
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-dfoptim-feedstock/blob/main/LICENSE.txt)
 
 Summary: Derivative-Free optimization algorithms. These algorithms do not require gradient information. More importantly, they can be used to solve non-smooth optimization problems.
 
